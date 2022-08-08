@@ -42,18 +42,36 @@ yourFavDes.style.marginTop = "20px";
 yourFavDes.style.padding = "10px 1rem";
 
 //get active the destination
-for (let i = 0; i < destinationList.length; i++) {
-  destinationList[i].addEventListener("click", function () {
-    let current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-    btn.style.display = "none";
-    container.append(yourFavDes);
-    yourFavDes.textContent = `You selected ${destinationList[i].textContent}`;
-    yourFavDes.style.width = "100%";
-    yourFavDes.style.textAlign = "left";
-    yourFavDes.style.border = "none";
-    yourFavDes.style.backgroundColor = "lightgreen";
-    yourFavDes.style.color = "black";
-  });
-}
+// for (let i = 0; i < destinationList.length; i++) {
+//   destinationList[i].addEventListener("click", function () {
+//     let current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//     btn.style.display = "none";
+//     container.append(yourFavDes);
+//     yourFavDes.textContent = `You selected ${destinationList[i].textContent}`;
+//     yourFavDes.style.width = "100%";
+//     yourFavDes.style.textAlign = "left";
+//     yourFavDes.style.border = "none";
+//     yourFavDes.style.backgroundColor = "lightgreen";
+//     yourFavDes.style.color = "black";
+//   });
+// }
+list.addEventListener("click", e => {
+  for (let i = 0; i < destinationList.length; i++) {
+    let des = destinationList[i];
+    if (des === e.target) {
+      des.classList.add("active");
+      btn.style.display = "none";
+      container.append(yourFavDes);
+      yourFavDes.textContent = `You selected ${des.textContent}`;
+      yourFavDes.style.width = "100%";
+      yourFavDes.style.textAlign = "left";
+      yourFavDes.style.border = "none";
+      yourFavDes.style.backgroundColor = "lightgreen";
+      yourFavDes.style.color = "black";
+    } else {
+      des.classList.remove("active");
+    }
+  }
+});
