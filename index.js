@@ -13,7 +13,7 @@ title.style.backgroundColor = "lightblue";
 title.style.padding = "10px";
 title.style.paddingLeft = "1rem";
 const destinationList = document.getElementsByClassName("list-group-item");
-const list = document.querySelector("div");
+const list = document.getElementById("list");
 
 //design the destination button
 const btn = document.querySelector("button");
