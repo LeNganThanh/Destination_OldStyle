@@ -12,8 +12,9 @@ const title = document.querySelector("p");
 title.style.backgroundColor = "lightblue";
 title.style.padding = "10px";
 title.style.paddingLeft = "1rem";
+
 const destinationList = document.getElementsByClassName("list-group-item");
-const list = document.getElementById("list");
+const list = document.querySelector(".list-group");
 
 //design the destination button
 const btn = document.querySelector("button");
@@ -27,6 +28,36 @@ btn.style.height = "3rem";
 btn.style.fontSize = "1.5rem";
 btn.style.alignSelf = "right";
 
+/* 
+solution using Bootstrap - also get button from Bootstrap
+
+btn.addEventsListener("click", function(e){
+  list.classList.toggle("d-none");
+  btn.textContent = list.classList.contains("d-none")? "Show des" : "Hide des";
+})
+
+//-------select destination-----------
+const selectDes = function(e){
+  let active = list.querySelector(".active");
+  active.classList.remove("active");
+  e.target.classList.add("active");
+
+  let message = document.querySelector(".message");
+  //If has none of message then message === null
+  ---------------------------
+  //check if message exist already
+
+  if(!document.body.contains(message)){
+    //if body doesn't has any message then assign an el for message
+  message = document.createElement("div");
+  message.classList.add("alert", "alert-success", "mt-4", "message");
+  }
+  //create message
+  message.textContent = `You clicked on ${e.target.textContent}`;
+  container.append(message);
+}
+list.addEventsListener("click",selectDes)
+*/
 //show or hide destination by clicking the button
 btn.addEventListener("click", function (e) {
   btn.innerHTML =
